@@ -158,7 +158,6 @@ class SignLanguageTrainer:
         plt.close()
 
     def plot_training_history(self):
-        """Plot training history"""
         plt.figure(figsize=(15, 5))
         
         # Accuracy plot
