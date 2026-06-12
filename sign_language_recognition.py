@@ -14,7 +14,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
 class DataAugmenter:
     @staticmethod
     def add_noise(landmarks, noise_factor=0.02):
