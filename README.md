@@ -1,10 +1,10 @@
-# 🤟 Sign-Language Recognizer
+# Sign-Language Recognizer
 
 This innovative application recognizes and interprets sign language, allowing users to communicate effectively. It translates hand gestures into spoken audio messages, enhancing accessibility for sign language users and facilitating smoother interactions in various settings.
 
 ---
 
-## 🚀 Features
+## Features
 
 * **Real-Time Gesture Recognition:** Captures and processes hand gestures instantly via web-camera feed.
 * **Audio Synthesis (Text-to-Speech):** Automatically converts interpreted signs into clear spoken audio messages.
@@ -14,7 +14,7 @@ This innovative application recognizes and interprets sign language, allowing us
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend/UI:** Streamlit / Tkinter / HTML-CSS *(Choose your UI framework)*
 * **Computer Vision:** OpenCV, MediaPipe (for hand tracking and landmark detection)
@@ -24,7 +24,7 @@ This innovative application recognizes and interprets sign language, allowing us
 
 ---
 
-## 💻 Getting Started
+## Getting Started
 
 Follow these instructions to set up and run the project locally on your machine.
 
