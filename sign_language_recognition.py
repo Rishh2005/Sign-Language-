@@ -1,3 +1,4 @@
+
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -28,30 +29,31 @@ class DataAugmenter:
         return landmarks * scale_factor
     
     @staticmethod
-    def rotate(landmarks, max_angle=15):
-        """Rotate landmarks in 3D space"""
-        angle = np.random.uniform(-max_angle, max_angle)
-        theta = np.radians(angle)
-        
-        # Create rotation matrix
-        rotation_matrix = np.array([
-            [np.cos(theta), -np.sin(theta), 0],
-            [np.sin(theta), np.cos(theta), 0],
-            [0, 0, 1]
-        ])
-        
-        # Reshape landmarks to (21, 3) for rotation
-        landmarks_3d = landmarks.reshape(-1, 3)
-        rotated = np.dot(landmarks_3d, rotation_matrix)
-        
-        return rotated.flatten()
-    
+        def rotate(landmarks, max_angle=15):
+            """Rotate landmarks in 3D space across all axes"""
+            # Generate random rotation angles for X, Y, and Z axes
+            angles = np.radians(np.random.uniform(-max_angle, max_angle, 3))
+            cx, cy, cz = np.cos(angles)
+            sx, sy, sz = np.sin(angles)
+            
+            # Individual rotation matrices
+            Rx = np.array([[1, 0, 0], [0, cx, -sx], [0, sx, cx]])
+            Ry = np.array([[cy, 0, sy], [0, 1, 0], [-sy, 0, cy]])
+            Rz = np.array([[cz, -sz, 0], [sx, cz, 0], [0, 0, 1]])
+            
+            # Combined 3D rotation matrix
+            rotation_matrix = Rz @ Ry @ Rx
+            
+            # Reshape, rotate, and flatten
+            landmarks_3d = landmarks.reshape(-1, 3)
+            return np.dot(landmarks_3d, rotation_matrix.T).flatten()
+
     @staticmethod
     def translate(landmarks, max_shift=0.1):
-        """Translate landmarks"""
+        """Translate landmarks cleanly using broadcasting"""
         shift = np.random.uniform(-max_shift, max_shift, 3)
-        landmarks_3d = landmarks.reshape(-1, 3)
-        translated = landmarks_3d + shift
+        # Broadcasting handles the addition automatically without explicitly matching rows
+        return (landmarks.reshape(-1, 3) + shift).flatten()
         return translated.flatten()
     
     @staticmethod
