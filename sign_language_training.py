@@ -7,7 +7,7 @@ import os
 import json
 from datetime import datetime
 import shutil
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_spli
 
 class SignLanguageDataCollector:
     def __init__(self, data_dir="dataset"):
