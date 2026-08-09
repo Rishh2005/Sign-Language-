@@ -24,10 +24,6 @@ This innovative application recognizes and interprets sign language, allowing us
 
 ---
 
-## Getting Started
-
-Follow these instructions to set up and run the project locally on your machine.
-
 ### Prerequisites
 
 Ensure you have Python installed (v3.8 or higher is recommended). You will also need a functional webcam.
