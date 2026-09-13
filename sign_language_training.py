@@ -166,7 +166,7 @@ class SignLanguageTrainer:
         print(f"\nTest accuracy: {test_accuracy*100:.2f}%")
         
         return history
-
+        
 def main():
     while True:
         print("\nSign Language Recognition System")
